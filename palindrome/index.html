@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="loader.js"></script>
+  <script>
+    loadWebAssembly('palindrome.wasm').then(instance => {
+      const exports = instance.exports;
+      const doubler = exports._doubler;
+
+      console.log(doubler("10"));
+    });
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
