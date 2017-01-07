@@ -7,9 +7,9 @@
   <script>
     loadWebAssembly('palindrome.wasm').then(instance => {
       const exports = instance.exports;
-      const doubler = exports._doubler;
+      const isPalindrome = exports._isPalindrome;
 
-      console.log(doubler("10"));
+      console.log(isPalindrome("aba"));
     });
   </script>
 </head>

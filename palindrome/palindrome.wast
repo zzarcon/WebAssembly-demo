@@ -5,14 +5,11 @@
   (import "env" "tableBase" (global $tableBase i32))
   (global $STACKTOP (mut i32) (i32.const 0))
   (global $STACK_MAX (mut i32) (i32.const 0))
-  (export "_doubler" (func $_doubler))
+  (export "_isPalindrome" (func $_isPalindrome))
   (export "__post_instantiate" (func $__post_instantiate))
   (export "runPostSets" (func $runPostSets))
-  (func $_doubler (param $0 i32) (result i32)
-    (i32.shl
-      (get_local $0)
-      (i32.const 1)
-    )
+  (func $_isPalindrome (param $0 i32) (result i32)
+    (i32.const 1)
   )
   (func $runPostSets
     (nop)
