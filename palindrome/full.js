@@ -1946,7 +1946,7 @@ var ASM_CONSTS = [];
 
 STATIC_BASE = 1024;
 
-STATICTOP = STATIC_BASE + 2720;
+STATICTOP = STATIC_BASE + 5168;
   /* global initializers */  __ATINIT__.push();
   
 
@@ -1955,7 +1955,7 @@ memoryInitializer = Module["wasmJSMethod"].indexOf("asmjs") >= 0 || Module["wasm
 
 
 
-var STATIC_BUMP = 2720;
+var STATIC_BUMP = 5168;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 
@@ -2198,6 +2198,12 @@ assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it a
 return real__free.apply(null, arguments);
 };
 
+var real__main = asm["_main"]; asm["_main"] = function() {
+assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+return real__main.apply(null, arguments);
+};
+
 var real__pthread_self = asm["_pthread_self"]; asm["_pthread_self"] = function() {
 assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
 assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -2223,13 +2229,14 @@ return real____errno_location.apply(null, arguments);
 };
 var _malloc = Module["_malloc"] = asm["_malloc"];
 var _free = Module["_free"] = asm["_free"];
-var runPostSets = Module["runPostSets"] = asm["runPostSets"];
+var _main = Module["_main"] = asm["_main"];
 var _pthread_self = Module["_pthread_self"] = asm["_pthread_self"];
 var _memset = Module["_memset"] = asm["_memset"];
 var _sbrk = Module["_sbrk"] = asm["_sbrk"];
 var _memcpy = Module["_memcpy"] = asm["_memcpy"];
 var _fflush = Module["_fflush"] = asm["_fflush"];
 var ___errno_location = Module["___errno_location"] = asm["___errno_location"];
+var runPostSets = Module["runPostSets"] = asm["runPostSets"];
 var dynCall_ii = Module["dynCall_ii"] = asm["dynCall_ii"];
 var dynCall_iiii = Module["dynCall_iiii"] = asm["dynCall_iiii"];
 var dynCall_vi = Module["dynCall_vi"] = asm["dynCall_vi"];

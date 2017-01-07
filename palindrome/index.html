@@ -5,7 +5,7 @@
   <title>Document</title>
   <script src="loader.js"></script>
   <script>
-    loadWebAssembly('palindrome.wasm').then(instance => {
+    loadModule('palindrome.wasm').then(instance => {
       const exports = instance.exports;
       const isPalindrome = exports._isPalindrome;
 

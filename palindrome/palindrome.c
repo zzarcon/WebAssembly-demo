@@ -4,6 +4,7 @@
 
 bool isPalindrome(char* str) {
   size_t len = strlen(str);
+  // size_t len = 0;
   int half = len / 2;
   int start = 0;
   int end = len - 1;
@@ -13,7 +14,7 @@ bool isPalindrome(char* str) {
   bool startSpace;
   bool endSpace;
   
-  // printf("%d\n", len);
+  // printf("%zu\n", len);
 
   while (half > 0 && isPal) {
     startSpace = str[start] == space || str[start] == comma;
