@@ -4,7 +4,6 @@
 
 bool isPalindrome(char* str) {
   size_t len = strlen(str);
-  // size_t len = 0;
   int half = len / 2;
   int start = 0;
   int end = len - 1;
@@ -14,8 +13,6 @@ bool isPalindrome(char* str) {
   bool startSpace;
   bool endSpace;
   
-  // printf("%zu\n", len);
-
   while (half > 0 && isPal) {
     startSpace = str[start] == space || str[start] == comma;
     endSpace = str[end] == space || str[end] == comma;
@@ -36,8 +33,8 @@ bool isPalindrome(char* str) {
   return isPal;  
 }
 
-// int main(int argc, char ** argv) {
-//   int result = isPalindrome("aba");
+int main(int argc, char ** argv) {
+  int result = isPalindrome("aba");
 
-//   printf(result ? "true" : "false");
-// }
+  printf(result ? "true" : "false");
+}
