@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
+// #include <stdint.h>
+// #include <limits.h>
 
 bool isPalindrome(char* str) {
   size_t len = strlen(str);
@@ -13,6 +15,9 @@ bool isPalindrome(char* str) {
   bool startSpace;
   bool endSpace;
   
+  // printf("str %s\n", str);
+  // printf("len %zu\n", len);
+
   while (half > 0 && isPal) {
     startSpace = str[start] == space || str[start] == comma;
     endSpace = str[end] == space || str[end] == comma;
@@ -33,8 +38,9 @@ bool isPalindrome(char* str) {
   return isPal;  
 }
 
-int main(int argc, char ** argv) {
-  int result = isPalindrome("aba");
+// int main(int argc, char ** argv) {
+//   int result = isPalindrome("aba");
+//   // size_t len = strlen("hector");
 
-  printf(result ? "true" : "false");
-}
+//   printf(result ? "true" : "false");
+// }

@@ -1,11 +1,11 @@
-function loadModule(filename) {
+module.exports = (filename) => {
   return fetch(filename)
     .then(response => response.arrayBuffer())
     .then(buffer => WebAssembly.compile(buffer))
     .then(module => {
       const imports = {
         env: {
-          memoryBase: 0, //0 | 1024
+          memoryBase: 0,
           tableBase: 0,
           memory: new WebAssembly.Memory({
             initial: 256
@@ -16,7 +16,7 @@ function loadModule(filename) {
           })
         }
       };
-      
+
       return new WebAssembly.Instance(module, imports);
     });
 }

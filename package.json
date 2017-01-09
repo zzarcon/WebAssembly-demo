@@ -1,0 +1,28 @@
+{
+  "name": "webassembly-demo",
+  "version": "0.1.0",
+  "description": "WebAssembly performance demo",
+  "main": "index.js",
+  "scripts": {
+    "serve": "serve",
+    "watch": "watchify index.js -o bundle.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzarcon/palindrome-WebAssembly.git"
+  },
+  "author": "zzarcon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zzarcon/palindrome-WebAssembly/issues"
+  },
+  "homepage": "https://github.com/zzarcon/palindrome-WebAssembly#readme",
+  "dependencies": {
+    "benchmark": "^2.1.3"
+  },
+  "devDependencies": {
+    "browserify": "^13.3.0",
+    "serve": "^2.1.2",
+    "watchify": "^3.8.0"
+  }
+}
