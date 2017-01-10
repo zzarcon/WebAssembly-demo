@@ -33,7 +33,7 @@ const Benchmark = require('benchmark');
 const loadModule = require('./loader');
 const {fiboJs, fiboJsRec, fiboJsMemo} = require('./fibo.js');
 const suite = new Benchmark.Suite;
-const numToFibo = 5;
+const numToFibo = 50;
 
 window.Benchmark = Benchmark; //Benchmark.js uses the global object internally
 
@@ -63,7 +63,7 @@ loadModule('fibonacci.wasm').then(instance => {
 module.exports = (filename) => {
   return fetch(filename)
     .then(response => response.arrayBuffer())
-    .then(buffer => {debugger})
+    .then(buffer => WebAssembly.compile(buffer))
     .then(module => {
       const imports = {
         env: {
