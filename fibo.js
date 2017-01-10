@@ -17,4 +17,13 @@ const fiboJsRec = (num) => {
   return fiboJsRec(num - 1) + fiboJsRec(num - 2);
 }
 
-module.exports = {fiboJs, fiboJsRec};
+const fiboJsMemo = (num, memo) => {
+  memo = memo || {};
+
+  if (memo[num]) return memo[num];
+  if (num <= 1) return 1;
+
+  return memo[num] = fiboJsMemo(num - 1, memo) + fiboJsMemo(num - 2, memo);
+}
+
+module.exports = {fiboJs, fiboJsRec, fiboJsMemo};
